@@ -11,6 +11,10 @@ def test_load_data():
     assert isinstance(manager.transfers, list)
     assert isinstance(manager.bills, list)
 
+    lista = ["Jan Nowak", "Adam Kowalski", "Ewa Adamska"]
     for apartment_key, apartment in manager.apartments.items():
         assert isinstance(apartment, Apartment)
         assert apartment.key == apartment_key
+        for tenant_key, tenant in manager.tenants.items():
+            assert tenant.name in lista
+        
